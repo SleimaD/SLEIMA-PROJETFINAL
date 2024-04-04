@@ -17,7 +17,8 @@ const Footer = () => {
             <section class="flex justify-center items-center">
                 <button
                     class="group flex justify-center p-2 rounded-md drop-shadow-xl bg-gradient-to-r from-gray-800 to-black text-white font-semibold hover:translate-y-3 hover:rounded-[50%] transition-all duration-500 hover:from-[#331029] hover:to-[#310413]"
-                    href="/"
+                    href="
+                    https://github.com/SleimaD" 
                 >
                     <svg
                     xmlns="http://www.w3.org/2000/svg"

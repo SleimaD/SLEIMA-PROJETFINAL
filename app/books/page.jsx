@@ -22,11 +22,11 @@ const BooksPage = () => {
 
   useEffect(() => {   
     dispatch(fetchBooks());
-  }, [dispatch]);
-
+  }, [dispatch]); 
+            
   useEffect(() => {
     dispatch(setSelectedGenres(genres));
-  }, [genres, dispatch]);
+  }, [genres, dispatch]);             
 
 
   const handleSearchChange = (event) => {
@@ -94,10 +94,10 @@ const BooksPage = () => {
               <option value="">All Books</option>
             </select>
           </div>
-          <button onClick={toggleSidebar} className={`absolute top-[7rem] left-9 z-30  text-[1.5rem] max-[426px]:text-[1rem] font-bold ${sidebarOpen ? 'text-red-500' : 'text-white bg-black p-2 px-3 rounded-full shadow-slate-400 shadow-lg'} `}>
+          <button onClick={toggleSidebar} className={`absolute top-[7rem] max-[769px]:top-[10rem] left-9 z-30  text-[1.5rem] max-[426px]:text-[1rem] font-bold ${sidebarOpen ? 'text-red-500' : 'text-white bg-black p-2 px-3 rounded-full shadow-slate-400 shadow-lg'} `}>
             {sidebarOpen ? 'x' : 'Genres'}
           </button>
-        <aside className={`genre-filter backdrop-blur-md bg-[#000000cc] top-[6rem] transform left-0 w-64 text-white p-4 transition-transform ${
+        <aside className={`genre-filter backdrop-blur-md bg-[#000000cc] top-[6rem] max-[769px]:top-[9rem] transform left-0 w-64 text-white p-4 transition-transform ${
             sidebarOpen ? 'translate-x-0' : '-translate-x-full'
           } absolute rounded-r-2xl h-[27rem] ease-in-out transition-all duration-700 z-20`}>  
           <div className=' w-full flex justify-center items-center p-2 mb-5'>Genres</div>
@@ -127,7 +127,7 @@ const BooksPage = () => {
           
         </aside>                                                                                               
       <main className="book-list flex justify-center items-center mt-[6rem]   p-2">
-        <div className='container bookscontainer  rounded-xl flex flex-wrap justify-center bg-[#dedddd]  gap-[3rem] w-[95%] p-7 overflow-y-auto h-[550px]'>
+        <div className='container bookscontainer  rounded-xl flex flex-wrap justify-center   gap-[3rem] w-[95%] p-7 overflow-y-auto h-[550px]'>
         {filteredBooks.map((book) => (   
             <div key={book.id}  className={` book-item shadow-[#afaeae] shadow-xl  ${darkMode ? 'bg-white text-black' : 'bg-black text-white'}`}>
               <div className='flex flex-col justify-center items-center gap-3'>
@@ -140,10 +140,10 @@ const BooksPage = () => {
                     {isAuthenticated && (
                       <button 
                         onClick={() => handleAddToCart(book)} 
-                        className={`border-2 p-2 px-3 rounded-full ${darkMode ? 'border-black' : 'border-white'}`}
+                        className={`border-2 p-2 px-3 rounded-full active:bg-slate-400 ${darkMode ? 'border-black' : 'border-white'}`}
                       >
                         Add
-                      </button>
+                      </button>        
                     )}
                     <button onClick={() => {router.push(`/books/${book.id}`)}} className={`border-2 p-2 px-3 rounded-full ${darkMode ? 'border-black' : 'border-white'} `}>details</button>
                   </div>

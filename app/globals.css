@@ -226,7 +226,7 @@ header::before {
 }
 
 .book-card {
-  min-width: 250px;
+  width: 250px;
 }
 
 
@@ -361,7 +361,7 @@ p {
   width: 30px;
   height: 50px;
   padding: 2px;
-  left: 75%;
+  left: 70%;
   transform: translate(-50%,-50%);
 }
 
@@ -434,6 +434,7 @@ p {
 }
 
 
+
 .carousel-item {
   display: inline-flex;
   width: 100%; 
@@ -442,7 +443,7 @@ p {
 
 
 
-@media (min-width: 374px) and (max-width: 1000px) { 
+@media (min-width: 375px) and (max-width: 1080px) { 
   nav .flex.justify-between {
     flex-direction: column;
     align-items: flex-start;
@@ -453,8 +454,35 @@ p {
   }
 
   .burger-menu {
-    display: block; 
+    display: block !important; 
   }
+
+  .book-card {
+    width: 220px;
+  }
+
+  .scroll-container {
+    gap: 0px;
+  }
+  
+}
+
+@media (min-width: 375px) and (max-width: 700px) {
+  .carousel-track {
+    width: 300px;
+  }
+
+  .carousel-item {
+    width: 110%;
+    /* height: 50px;   */
+  }
+
+  .book-card {
+    width: 170px;
+  }
+  
+  
+  
 }
 
 
@@ -510,6 +538,23 @@ p {
 
 
 .scroll-container::-webkit-scrollbar-thumb {
+  background: #cbcbcb80;
+  border-radius: 11px;
+  border: 2px solid transparent; 
+
+}
+
+.divdesc::-webkit-scrollbar {
+  width: 5px; 
+  overflow-x: auto;
+}
+
+.divdesc::-webkit-scrollbar-track {
+  background-color: transparent; 
+}
+
+
+.divdesc::-webkit-scrollbar-thumb {
   background: #cbcbcb80;
   border-radius: 11px;
   border: 2px solid transparent; 

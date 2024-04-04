@@ -21,7 +21,6 @@ const Page = () => {
 
     useEffect(() => { 
         if (isAuthenticated) {
-          alert(welcomeMessage);
           router.push('/');
         }
       }, [isAuthenticated, welcomeMessage, router]);  
