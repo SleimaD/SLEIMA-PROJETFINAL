@@ -16,6 +16,18 @@ Tailwind CSS: Adopted for rapid and responsive styling of components.
 The application consumes the https://example-data.draftbit.com/books API to retrieve the list of books.
 This API provides a dataset comprising the title, author, description, genre, and cover image for each book.
 
+### Deployment
+
+1. Clone repository GitHub :
+   git clone `https://github.com/SleimaD/SLEIMA-PROJETFINAL.git`
+2. Access repository :
+    `cd projet-final`
+3. Install :
+  `npm install` 
+4. launch application on developpment mode :
+    Visit `http://localhost:3000`   
+
+
 ## Website :
 https://sleima-projetfinal.vercel.app/
 
