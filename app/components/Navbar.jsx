@@ -18,17 +18,19 @@ const Navbar = () => {
   const cartItems = useSelector((state) => state.cart.items);
   const darkMode = useSelector((state) => state.theme.darkMode);
 
+
+  // Handlersfor dark mode toggle
   const handleToggleDarkMode = () => {
     dispatch(toggleDarkMode());
   };
 
-
+  // Handler for authentication
   const handleLogOut = () => {
     dispatch(signOut());
     router.push('/'); 
   };
 
-
+  // Handlers for cart
   const toggleCartSidebar = () => {
     if (!isAuthenticated) {
       router.push('/login'); 
@@ -38,15 +40,15 @@ const Navbar = () => {
   };
 
   const handleAddToCart = (book) => {
-    dispatch(addItem(book));
+    dispatch(addItem(book)); //add
   };
   
   const handleRemoveFromCart = (bookId) => {
-    dispatch(removeItem(bookId));
+    dispatch(removeItem(bookId)); //remove
   };
   
   const handleClearCart = () => {
-    dispatch(clearCart());
+    dispatch(clearCart()); //clear
   };
 
    
@@ -65,7 +67,9 @@ const Navbar = () => {
           <Link className='font-bold hover:scale-105 duration-300' href="/categories">Categories</Link>
           <Link className='font-bold hover:scale-105 duration-300' href="/books">Books</Link> 
           <div>
+             {/* Cart Button and Sidebar */}
             <button onClick={toggleCartSidebar} data-quantity="0" class="btn-cart">
+              {/* Cart UI */}
               <svg className="icon-cart" viewBox="0 0 24.38 30.52" height="30.52" width="24.38" xmlns="http://www.w3.org/2000/svg">
                 <title>icon-cart</title>
                 <path transform="translate(-3.62 -0.85)" d="M28,27.3,26.24,7.51a.75.75,0,0,0-.76-.69h-3.7a6,6,0,0,0-12,0H6.13a.76.76,0,0,0-.76.69L3.62,27.3v.07a4.29,4.29,0,0,0,4.52,4H23.48a4.29,4.29,0,0,0,4.52-4ZM15.81,2.37a4.47,4.47,0,0,1,4.46,4.45H11.35a4.47,4.47,0,0,1,4.46-4.45Zm7.67,27.48H8.13a2.79,2.79,0,0,1-3-2.45L6.83,8.34h3V11a.76.76,0,0,0,1.52,0V8.34h8.92V11a.76.76,0,0,0,1.52,0V8.34h3L26.48,27.4a2.79,2.79,0,0,1-3,2.44Zm0,0"></path>
@@ -73,6 +77,7 @@ const Navbar = () => {
               <span class="quantity"></span> 
             </button>
           </div>  
+          {/* Login/Logout */}
           <Link href="/login">
             <Image width={22} height={50} src="/login.svg" alt="login" className='w-[22px] hover:scale-105 transition-transform duration-150 ' />
           </Link>
@@ -85,6 +90,7 @@ const Navbar = () => {
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
           </svg>
         </button>
+              {/* Burger Menu Logic */}
         {isBurgerMenuOpen && (
           <div className="absolute bg-white w-[100vw] h-[500px] z-50 top-5 left-0 burger-menu-content">
             <button className='p-5 text-red-500 font-bold' onClick={() => setIsBurgerMenuOpen(false)}>X</button>
@@ -117,6 +123,8 @@ const Navbar = () => {
           </div>
         )}
     </nav> 
+                  
+      {/* Cart Sidebar */}
       <div className={`fixed inset-y-0 right-0 transform transition-transform duration-700 ease-in-out overflow-auto ${cartSidebarOpen ? 'translate-x-0' : 'translate-x-full'} bg-white shadow-xl h-full w-[450px] max-[426px]:w-[100vw] z-40`}>
           <button className=' p-5 text-red-500 font-bold' onClick={() => setCartSidebarOpen(false)}>Close</button>
           <div className='p-5 h-[35rem] overflow-auto'>

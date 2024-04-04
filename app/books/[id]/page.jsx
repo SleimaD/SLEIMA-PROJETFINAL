@@ -1,6 +1,6 @@
 "use client"
 import React, {useEffect} from 'react'
-import { useRouter } from 'next/navigation'
+import { useRouter } from 'next/navigation' //routing function
 import { useSelector, useDispatch } from 'react-redux'
 import { fetchBooks } from "@/app/lib/features/book/bookSlice"
 import Navbar from '@/app/components/Navbar'
@@ -12,23 +12,29 @@ const Page = ({params:{id}}) => {
     const darkMode = useSelector((state) => state.theme.darkMode);
 
 
-
+    // Retrieves a specific book from the Redux store based on the ID in the URL 
     const book = useSelector(state =>
         state.book.books.find(book => book.id === parseInt(id))
     );
 
+    
+    // useEffect hook for fetching data based on the book ID
     useEffect(() => { 
         if(id) {
           dispatch(fetchBooks());
         } 
-      }, [id,dispatch]);
+    }, [id,dispatch]);
     
 
-    
-    if (!book) {
-    return <div>Loading...</div>;
-    }
-    
+    // Placeholder loading state while data is being fetched
+    if (loading) 
+    return 
+        <div className='w-full h-full flex justify-center items-center'>
+            <div class="flex justify-center items-center h-screen">
+                <div class="animate-spin ease-linear rounded-full w-10 h-10 border-t-4 border-b-4 border-green-900 ml-3"></div> 
+            </div>
+        </div>;
+      
 
 
   return (

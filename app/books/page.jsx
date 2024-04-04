@@ -20,15 +20,21 @@ const BooksPage = () => {
   const darkMode = useSelector((state) => state.theme.darkMode);
   const isAuthenticated = useSelector(selectIsAuthenticated);
 
+
+  // Fetch all books on component mount.
   useEffect(() => {   
     dispatch(fetchBooks());
   }, [dispatch]); 
             
+
+  // Update selected genres in the Redux store whenever the local genres state changes.
   useEffect(() => {
     dispatch(setSelectedGenres(genres));
   }, [genres, dispatch]);             
 
 
+
+  // Handlers for search and filter functionality.
   const handleSearchChange = (event) => {
     dispatch(setSearch(event.target.value));
   };
@@ -36,7 +42,7 @@ const BooksPage = () => {
   const handleGenreChange = (event) => {
     const value = event.target.value;
     const isChecked = event.target.checked;
-
+    // Update the genres state based on checkbox changes.
     setGenres((currentGenres) => 
       isChecked
         ? [...currentGenres, value]
@@ -44,10 +50,11 @@ const BooksPage = () => {
     );
   };
 
-
+   // Handler for sorting books.
   const handleSortChange = (event) => {
     const sortValue = event.target.value;
     setSortValue(sortValue);
+    // Dispatch sorting actions based on selected value.
     if (sortValue === 'rating') {
       dispatch(sortByRating());
     } else if (sortValue === 'num_pages') {
@@ -58,6 +65,8 @@ const BooksPage = () => {
 
   };  
 
+
+  // Filter genres based on the search query.
   const filteredGenres = genreQuery
     ? allGenres.filter((genre) =>
         genre.toLowerCase().includes(genreQuery.toLowerCase())
@@ -68,15 +77,17 @@ const BooksPage = () => {
     setGenreQuery(event.target.value);
   };
 
+  // Toggle the visibility of the sidebar.
   const toggleSidebar = () => {
     setSidebarOpen(!sidebarOpen);
   };
 
+  // Handler for adding a book to the cart.
   const handleAddToCart = (book) => {
     dispatch(addItem(book));
   };
 
-
+   // Render a loading spinner while books are being fetched.
   if (loading) return <div className='w-full h-full flex justify-center items-center'>
   <div class="flex justify-center items-center h-screen">
   <div class="animate-spin ease-linear rounded-full w-10 h-10 border-t-4 border-b-4 border-green-900 ml-3"></div> </div>
@@ -87,6 +98,7 @@ const BooksPage = () => {
           <Navbar/>
           <div  className={`books-page relative h-[100vh] overflow-hidden  ${darkMode ? 'bg-black text-white' : 'bg-white text-black'}`}>
           <div className="search-header mb-5 w-full flex justify-center items-center gap-16 mt-16 max-[426px]:flex-col max-[426px]:gap-4 max-[426px]:mt-8">
+            {/* Search input and sorting dropdown */}
             <input className={` shadow-inner p-3 px-5 w-[30%] max-[426px]:w-[70%] rounded-3xl ${darkMode ? 'bg-white text-black' : 'bg-black text-white'}`} type="text" placeholder="Search by titles and authors..." onChange={handleSearchChange} />
             <select className={`p-3 shadow-inner rounded-3xl ${darkMode ? 'bg-white text-black' : 'bg-black text-white'}`} value={sortValue}  onChange={handleSortChange}>  
               <option value="rating">Sort by Rating</option>
@@ -94,9 +106,11 @@ const BooksPage = () => {
               <option value="">All Books</option>
             </select>
           </div>
+             {/* Genre sidebar toggle button */}
           <button onClick={toggleSidebar} className={`absolute top-[7rem] max-[769px]:top-[10rem] left-9 z-30  text-[1.5rem] max-[426px]:text-[1rem] font-bold ${sidebarOpen ? 'text-red-500' : 'text-white bg-black p-2 px-3 rounded-full shadow-slate-400 shadow-lg'} `}>
             {sidebarOpen ? 'x' : 'Genres'}
           </button>
+           {/* Genre filter sidebar */}
         <aside className={`genre-filter backdrop-blur-md bg-[#000000cc] top-[6rem] max-[769px]:top-[9rem] transform left-0 w-64 text-white p-4 transition-transform ${
             sidebarOpen ? 'translate-x-0' : '-translate-x-full'
           } absolute rounded-r-2xl h-[27rem] ease-in-out transition-all duration-700 z-20`}>  
@@ -125,7 +139,8 @@ const BooksPage = () => {
 
             </div>
           
-        </aside>                                                                                               
+        </aside>                                     
+         {/* List of filtered and sorted books */}                                                          
       <main className="book-list flex justify-center items-center mt-[6rem]   p-2">
         <div className='container bookscontainer  rounded-xl flex flex-wrap justify-center   gap-[3rem] w-[95%] p-7 overflow-y-auto h-[550px]'>
         {filteredBooks.map((book) => (   

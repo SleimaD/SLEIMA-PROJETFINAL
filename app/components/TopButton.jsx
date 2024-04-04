@@ -2,10 +2,11 @@ import React, {useState, useEffect} from 'react'
 import { useSelector } from 'react-redux';
 
 const TopButton = () => {
-  const [isVisible, setIsVisible] = useState(false);
+  const [isVisible, setIsVisible] = useState(false); // State to manage the visibility of the button. Initially, the button is not visible.
   const darkMode = useSelector((state) => state.theme.darkMode);
 
 
+  // Function to toggle the visibility of the scroll-to-top button based on the page's vertical scroll position.
   const toggleVisibility = () => {
     if (window.pageYOffset > 500) {
       setIsVisible(true);
@@ -14,6 +15,7 @@ const TopButton = () => {
     }
   };
 
+  // Function to scroll the window to the top of the page smoothly when the button is clicked.
   const scrollToTop = () => {
     window.scrollTo({
       top: 0,
@@ -21,6 +23,8 @@ const TopButton = () => {
     });
   };
 
+
+  // Effect hook to add and clean up the scroll event listener.
   useEffect(() => {
     window.addEventListener("scroll", toggleVisibility);
     return () => window.removeEventListener("scroll", toggleVisibility);

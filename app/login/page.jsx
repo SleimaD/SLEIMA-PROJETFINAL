@@ -7,28 +7,33 @@ import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 
 const Page = () => {
-    const [isSignUp, setIsSignUp] = useState(false);
+    const [isSignUp, setIsSignUp] = useState(false); // Toggles between sign up and sign in forms
     const router = useRouter();
     const dispatch = useDispatch();
     const isAuthenticated = useSelector((state) => state.login.isAuthenticated);
     const welcomeMessage = useSelector((state) => state.login.welcomeMessage);
-    const [isPanelActive, setIsPanelActive] = useState(false);
+    const [isPanelActive, setIsPanelActive] = useState(false); // Controls CSS for sliding panel effect
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [name, setName] = useState('');
-    const darkMode = useSelector((state) => state.theme.darkMode);
+    const darkMode = useSelector((state) => state.theme.darkMode); // Accesses the darkMode state from the Redux store
 
 
+
+    // useEffect for redirecting if authenticated
     useEffect(() => { 
         if (isAuthenticated) {
-          router.push('/');
+          router.push('/'); // onclick => redirected to home page
         }
-      }, [isAuthenticated, welcomeMessage, router]);  
+    }, [isAuthenticated, welcomeMessage, router]);  
 
+
+    // Function to toggle sign up panels
     const activateSignUp = () => {
         setIsPanelActive(true);
     };
 
+    // Function to toggle sign in panels
     const activateSignIn = () => {
         setIsPanelActive(false);
     };
@@ -36,17 +41,19 @@ const Page = () => {
 
 
 
-
+    // Form submission handlers 
     const handleSignUpSubmit = (e) => {
         e.preventDefault();  
         dispatch(signUp(name, email, password));
-      };
+    };
     
     const handleSignInSubmit = (e) => {
     e.preventDefault();
     dispatch(logIn(email, password));
     };
 
+
+    // Functions  calling 'authenticate' for login/signup 
     const handleLogin = (e) => {
         e.preventDefault();
         dispatch(authenticate({ email, password }));
@@ -65,6 +72,7 @@ const Page = () => {
     const toggleSignIn = () => setIsSignUp(false);
 
 
+    // Dynamic CSS classes for the panel animation
     let containerClasses = "container mt-10 bg-white rounded-xl shadow-md shadow-[#858585] relative overflow-hidden w-[768px] max-[769px]:w-[750px] max-w-full min-h-[480px]";
     if (isPanelActive) {
         containerClasses += " right-panel-active";

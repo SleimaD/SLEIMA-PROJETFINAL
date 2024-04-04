@@ -17,12 +17,13 @@ const Page = () => {
   const darkMode = useSelector((state) => state.theme.darkMode);
 
 
-
+  // Fetch books on component mount
   useEffect(() => {
     dispatch(fetchBooks()); 
   }, [dispatch]);
 
-
+  
+  // Filtering logic for book genres based on search term
   useEffect(() => {
     if (searchTerm) {
       // Filter genres based on the search 

@@ -4,8 +4,8 @@ import { selectTopRatedBooks } from '@/app/lib/features/book/bookSlice';
 import Link from 'next/link';
 
 const Trending = () => {
-  const topRatedBooks = useSelector(selectTopRatedBooks);
-  const darkMode = useSelector((state) => state.theme.darkMode);
+  const topRatedBooks = useSelector(selectTopRatedBooks); //import function from Redux
+  const darkMode = useSelector((state) => state.theme.darkMode); // Accesses the darkMode state from the Redux store
 
   return (
     <div className='w-full relative ' data-aos="fade-right" data-aos-duration="1500">
@@ -24,7 +24,7 @@ const Trending = () => {
         ))}                                                                                            
       </div>                                                          
       <div className=' w-full flex justify-center items-center '>
-        <Link href="/books"><button className='text-[1.3rem] mb-[7rem] font-bold hover:text-[#804d9f]'>Discover All our Books &rarr;</button></Link>
+        <Link href="/books"><button className='text-[1.3rem] mb-[7rem] font-bold hover:text-[#804d9f]'>Discover All our Books &rarr; </button></Link>
       </div>
     </div>
   );

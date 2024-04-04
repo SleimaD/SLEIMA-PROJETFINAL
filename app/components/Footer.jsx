@@ -2,7 +2,7 @@ import React from 'react'
 import { useSelector } from 'react-redux' 
 
 const Footer = () => {
-    const darkMode = useSelector((state) => state.theme.darkMode);
+    const darkMode = useSelector((state) => state.theme.darkMode); // Accesses the darkMode state from the Redux store
 
 
   return (

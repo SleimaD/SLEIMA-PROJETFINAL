@@ -1,7 +1,7 @@
 "use client"
 import Image from "next/image";       
 import Trending from "./components/Trending";
-import { fetchBooks } from "./lib/features/book/bookSlice";
+import { fetchBooks } from "./lib/features/book/bookSlice"; // Imports the fetchBooks function from the book slice
 import { useDispatch } from "react-redux";
 import { useEffect } from "react";
 import Carousel from "./components/Carousel";
@@ -11,10 +11,11 @@ import TopButton from "./components/TopButton";
 import Footer from "./components/Footer";
 
 export default function Home() {
-  const dispatch = useDispatch();
-  const darkMode = useSelector((state) => state.theme.darkMode);
+  const dispatch = useDispatch();  // Creates a dispatch hook (for dispatching Redux actions)
+  const darkMode = useSelector((state) => state.theme.darkMode); // Accesses the darkMode state from the Redux store
 
 
+  // Uses useEffect to trigger fetchBooks after the component renders
   useEffect(() => {
     dispatch(fetchBooks());
   }, [dispatch]);
