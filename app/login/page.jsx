@@ -6,7 +6,7 @@ import { logIn, logOut, signUp, signOut, selectIsAuthenticated, authenticate } f
 import Navbar from '../components/Navbar'; 
 import Footer from '../components/Footer';
 
-const page = () => {
+const Page = () => {
     const [isSignUp, setIsSignUp] = useState(false);
     const router = useRouter();
     const dispatch = useDispatch();
@@ -51,7 +51,7 @@ const page = () => {
     const handleLogin = (e) => {
         e.preventDefault();
         dispatch(authenticate({ email, password }));
-        router.push('/'); // Navigate to home page
+        router.push('/'); // Navigate to home Page
     };
 
     const handleSignUp = (e) => {
@@ -115,4 +115,4 @@ const page = () => {
         </div>         
     );}
 
-export default page
+export default Page

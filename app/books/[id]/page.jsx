@@ -6,7 +6,7 @@ import { fetchBooks } from "@/app/lib/features/book/bookSlice"
 import Navbar from '@/app/components/Navbar'
 import Link from 'next/link'
 
-const page = ({params:{id}}) => {
+const Page = ({params:{id}}) => {
     const router = useRouter();
     const dispatch = useDispatch();
     const darkMode = useSelector((state) => state.theme.darkMode);
@@ -78,4 +78,4 @@ const page = ({params:{id}}) => {
   )
 }
 
-export default page 
+export default Page 

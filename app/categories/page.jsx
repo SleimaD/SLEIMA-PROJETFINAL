@@ -9,7 +9,7 @@ import Footer from '../components/Footer';
 
 
 
-const page = () => {
+const Page = () => {
   const dispatch = useDispatch();
   const booksByGenre = useSelector(selectBooksByGenre); 
   const [searchTerm, setSearchTerm] = useState('');
@@ -77,4 +77,4 @@ const page = () => {
     </div>
   );}
 
-export default page
+export default Page
