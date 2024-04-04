@@ -2,7 +2,7 @@
 import Navbar from '../components/Navbar';
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { fetchBooks, setSearchQuery, setSelectedGenres, sortByRating, sortByNumPages, selectAllGenres, clearSort } from '@/app/lib/features/book/bookSlice';
+import { fetchBooks, setSearch, setSelectedGenres, sortByRating, sortByNumPages, selectAllGenres, clearSort } from '@/app/lib/features/book/bookSlice';
 import { addItem, calculatePrice } from '@/app/lib/features/cart/cartSlice';
 import { selectIsAuthenticated } from '@/app/lib/features/login/loginSlice';
 import { useRouter } from 'next/navigation';
@@ -30,7 +30,7 @@ const BooksPage = () => {
 
 
   const handleSearchChange = (event) => {
-    dispatch(setSearchQuery(event.target.value));
+    dispatch(setSearch(event.target.value));
   };
 
   const handleGenreChange = (event) => {
