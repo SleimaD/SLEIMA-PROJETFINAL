@@ -1,37 +1,34 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+## Online Book Library
+This project is a web application for an online book library built with Next.js and Redux. 
+It allows users to browse a collection of books, search for books by title or author, 
+filter books by genre, and view additional details about each book.
 
-## Getting Started
+## Site Architecture
+The application is primarily built with Next.js for the frontend and utilizes Redux for global state management. 
+The architecture is designed to be lightweight, with a clear separation between UI logic and data handling.
 
-First, run the development server:
+## Frontend
+Next.js: Serves as the primary framework for building the application.
+Redux: Used to manage the application's global state, facilitating communication between components.
+Tailwind CSS: Adopted for rapid and responsive styling of components.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## API Usage
+The application consumes the https://example-data.draftbit.com/books API to retrieve the list of books.
+This API provides a dataset comprising the title, author, description, genre, and cover image for each book.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### Deployment
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+1. Clone repository GitHub :
+   git clone `https://github.com/SleimaD/SLEIMA-PROJETFINAL.git`
+2. Access repository :
+    `cd projet-final`
+3. Install :
+  `npm install` 
+4. launch application on developpment mode :
+    Visit `http://localhost:3000`   
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
 
-## Learn More
+## Website :
+https://sleima-projetfinal.vercel.app/
 
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
-# SLEIMA-PROJETFINAL
+SLEIMA-PROJETFINAL
