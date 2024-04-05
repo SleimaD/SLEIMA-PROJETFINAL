@@ -22,7 +22,7 @@ const Carousel = () => {
       <div ref={carouselRef} className="carousel-track">
         {items.map((book) => ( 
           <div key={book.id} className="carousel-item" >
-            <img src={book.image_url} className='w-[280px] h-[300px] max-[426px]:w-[50px] max-[426px]:h-[80px] shadow-md shadow-[#919090] ' alt={`Cover of the book ${book.title}`} />
+            <img src={book.image_url} className='w-[280px] h-[370px] max-[426px]:w-[50px] max-[426px]:h-[80px] shadow-md shadow-[#919090] ' alt={`Cover of the book ${book.title}`} />
            
           </div>
         ))}

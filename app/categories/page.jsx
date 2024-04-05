@@ -65,7 +65,7 @@ const Page = () => {
               {books.map((book) => (
                 <Link key={book.id} href={`/books/${book.id}`} passHref>
                   <div className="book-card ">
-                    <img src={book.image_url} className='w-[270px] h-[280px] hover:scale-105 duration-700 max-[769px]:w-[200px] max-[769px]:h-[250px] max-[426px]:w-[150px] max-[426px]:h-[180px] ' alt={book.title} />
+                    <img src={book.image_url} className='w-[270px] h-[320px] hover:scale-105 duration-700 max-[769px]:w-[200px] max-[769px]:h-[250px] max-[426px]:w-[150px] max-[426px]:h-[180px] ' alt={book.title} />
                   </div>
                 </Link>
               ))}
