@@ -27,7 +27,7 @@ const Page = ({params:{id}}) => {
     
 
     // Placeholder loading state while data is being fetched
-    if (loading) 
+    if (!book) 
     return 
         <div className='w-full h-full flex justify-center items-center'>
             <div class="flex justify-center items-center h-screen">

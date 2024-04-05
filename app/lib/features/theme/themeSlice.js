@@ -8,7 +8,7 @@ export const themeSlice = createSlice({
   name: 'theme',
   initialState,
   reducers: {
-    // A reducer to toggle dark mode. It inverses the current boolean value of darkMode.
+    // A reducer to toggle dark mode. It inverses the current boolean value of darkMode.       
     toggleDarkMode: (state) => {
       state.darkMode = !state.darkMode;
     },
