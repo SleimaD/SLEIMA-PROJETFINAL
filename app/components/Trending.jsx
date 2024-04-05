@@ -18,7 +18,7 @@ const Trending = () => {
       <div className=' w-full  flex justify-center items-center gap-[15rem] z-50 max-[1025px]:flex max-[1025px]:gap-[7rem] max-[769px]:gap-[3rem] max-[426px]:flex-col max-[426px]:gap-[1rem] '>
         {topRatedBooks.map((book) => (
             <div key={book.id} className='mb-[6rem] max-[426px]:mb-0'>
-            <img src={book.image_url} className='w-[250px] h-[350px] mt-[7rem] max-[426px]:mt-0 mb-5  shadow-lg shadow-[#4d4c4c] max-[1025px]:w-[230px] max-[1025px]:h-[300px] max-[769px]:w-[200px] max-[769px]:h-[290px] max-[426px]:w-[190px] max-[426px]:h-[210px] ' alt="" />
+            <img src={book.image_url} className='w-[250px] h-[350px] mt-[7rem] max-[426px]:mt-0 mb-5  shadow-lg shadow-[#4d4c4c] max-[1025px]:w-[230px] max-[1025px]:h-[300px] max-[769px]:w-[200px] max-[769px]:h-[290px] max-[426px]:w-[190px] max-[426px]:h-[210px] rounded-[5px] ' alt="" />
             <p className=' flex justify-center items-center font-bold'><span className='text-yellow-300 text-[1.2rem]'>&#9733;</span> {book.rating}</p>
             </div> 
         ))}                                                                                            

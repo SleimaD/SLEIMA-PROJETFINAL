@@ -45,7 +45,7 @@ export const loginSlice = createSlice({
   },
 });
 
-// Thunk functions to simulate async operations
+// functions to simulate async operations
 export const logIn = (email, password) => (dispatch) => {
   dispatch(setLoading(true));
   // Simulate an async login operation with a timeout

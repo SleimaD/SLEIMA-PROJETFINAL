@@ -48,8 +48,8 @@ const Page = () => {
     };
     
     const handleSignInSubmit = (e) => {
-    e.preventDefault();
-    dispatch(logIn(email, password));
+        e.preventDefault();
+        dispatch(logIn(email, password));
     };
 
 

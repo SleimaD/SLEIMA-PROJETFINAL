@@ -45,7 +45,6 @@ const filterBooksBySearch = (books, i) => {
       book.authors.toLowerCase().includes(i.toLowerCase())
   );
 };
-
 // function to filter books by selected genres 
 const filterBooksByGenres = (books, selectedGenres) => {
   if (selectedGenres.length === 0) return books; // Return all books if no genre is selected
